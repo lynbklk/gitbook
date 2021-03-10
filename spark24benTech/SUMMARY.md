@@ -1,27 +1,8 @@
 # Summary
 
-## 手边命令
-* [shell常用](handy/shell/README.md)
-    * [awk](handy/shell/awk.md)
-    * [sed](handy/shell/sed.md)
-    * [grep](handy/shell/grep.md)
-    * [find](handy/shell/find.md)
-    * [git](handy/shell/git.md)
-    * [svn](handy/shell/svn.md)
-* [常用组件](handy/app/README.md)
-    * [ceph](handy/app/ceph.md)
-    * [kafka](handy/app/kafka.md)
-    * [mysql](handy/app/mysql.md)
-    * [kube](handy/app/kube.md)
-    * [docker](handy/app/docker.md)
-* [杂项](handy/misc/README.md)
-    * [rpm](handy/misc/rpm.md)
-    * [tmux](handy/misc/tmux.md)
-    * [setup ubnutu](handy/misc/setup-ubuntu.md)
-    * [脚本](handy/misc/shell-script.md)
-    * [小知识点](handy/misc/useful-snippets.md)
-
 ## 笔记
+* [Nginx](note/nginx/README.md)
+	* []
 * [算法](note/alg/README.md)
     * [常用平衡数据结构](note/alg/famous-balance-data-structure.md)
 * [架构](note/arch/README.md)
@@ -98,6 +79,28 @@
     * [如何证明fork用了COW](blog/linux/fork-cow.md)
     * [Linux 自旋锁 spinlock 的使用](blog/linux/splinlock.md)
     * [谁偷了你的磁盘](blog/linux/who-stolen-ur-disk.md)
+
+## 工具
+* [shell常用](tools/shell/README.md)
+    * [awk](tools/shell/awk.md)
+    * [sed](tools/shell/sed.md)
+    * [grep](tools/shell/grep.md)
+    * [find](tools/shell/find.md)
+    * [git](tools/shell/git.md)
+    * [svn](tools/shell/svn.md)
+* [常用组件](tools/app/README.md)
+    * [ceph](tools/app/ceph.md)
+    * [kafka](tools/app/kafka.md)
+    * [mysql](tools/app/mysql.md)
+    * [kube](tools/app/kube.md)
+    * [docker](tools/app/docker.md)
+* [杂项](tools/misc/README.md)
+    * [rpm](tools/misc/rpm.md)
+    * [tmux](tools/misc/tmux.md)
+    * [setup ubnutu](tools/misc/setup-ubuntu.md)
+    * [脚本](tools/misc/shell-script.md)
+    * [小知识点](tools/misc/useful-snippets.md)
+
 
 ## 附录
 * [说明](README.md)
