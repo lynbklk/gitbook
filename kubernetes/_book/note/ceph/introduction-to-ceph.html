@@ -1,0 +1,1857 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ceph 简介 · My TechBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="9sheng">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-ace/ace.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-atoc/atoc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-hopscotch.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-sectionx/sectionx.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="deploy-ceph.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">手边命令</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../handy/shell/">
+            
+                <a href="../../handy/shell/">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    shell常用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../../handy/shell/awk.html">
+            
+                <a href="../../handy/shell/awk.html">
+            
+                    
+                        <b>1.1.1.</b>
+                    
+                    awk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="../../handy/shell/sed.html">
+            
+                <a href="../../handy/shell/sed.html">
+            
+                    
+                        <b>1.1.2.</b>
+                    
+                    sed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="../../handy/shell/grep.html">
+            
+                <a href="../../handy/shell/grep.html">
+            
+                    
+                        <b>1.1.3.</b>
+                    
+                    grep
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="../../handy/shell/find.html">
+            
+                <a href="../../handy/shell/find.html">
+            
+                    
+                        <b>1.1.4.</b>
+                    
+                    find
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" data-path="../../handy/shell/git.html">
+            
+                <a href="../../handy/shell/git.html">
+            
+                    
+                        <b>1.1.5.</b>
+                    
+                    git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6" data-path="../../handy/shell/svn.html">
+            
+                <a href="../../handy/shell/svn.html">
+            
+                    
+                        <b>1.1.6.</b>
+                    
+                    svn
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../handy/app/">
+            
+                <a href="../../handy/app/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    常用组件
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../handy/app/ceph.html">
+            
+                <a href="../../handy/app/ceph.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    ceph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../handy/app/kafka.html">
+            
+                <a href="../../handy/app/kafka.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    kafka
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../handy/app/mysql.html">
+            
+                <a href="../../handy/app/mysql.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    mysql
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../handy/app/kube.html">
+            
+                <a href="../../handy/app/kube.html">
+            
+                    
+                        <b>1.2.4.</b>
+                    
+                    kube
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../handy/app/docker.html">
+            
+                <a href="../../handy/app/docker.html">
+            
+                    
+                        <b>1.2.5.</b>
+                    
+                    docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../handy/misc/">
+            
+                <a href="../../handy/misc/">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    杂项
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../handy/misc/rpm.html">
+            
+                <a href="../../handy/misc/rpm.html">
+            
+                    
+                        <b>1.3.1.</b>
+                    
+                    rpm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../handy/misc/tmux.html">
+            
+                <a href="../../handy/misc/tmux.html">
+            
+                    
+                        <b>1.3.2.</b>
+                    
+                    tmux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../handy/misc/setup-ubuntu.html">
+            
+                <a href="../../handy/misc/setup-ubuntu.html">
+            
+                    
+                        <b>1.3.3.</b>
+                    
+                    setup ubnutu
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../handy/misc/shell-script.html">
+            
+                <a href="../../handy/misc/shell-script.html">
+            
+                    
+                        <b>1.3.4.</b>
+                    
+                    脚本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../../handy/misc/useful-snippets.html">
+            
+                <a href="../../handy/misc/useful-snippets.html">
+            
+                    
+                        <b>1.3.5.</b>
+                    
+                    小知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">笔记</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../alg/">
+            
+                <a href="../alg/">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    算法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../alg/famous-balance-data-structure.html">
+            
+                <a href="../alg/famous-balance-data-structure.html">
+            
+                    
+                        <b>2.1.1.</b>
+                    
+                    常用平衡数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../arch/">
+            
+                <a href="../arch/">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    架构
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../arch/note-on-ddia.html">
+            
+                <a href="../arch/note-on-ddia.html">
+            
+                    
+                        <b>2.2.1.</b>
+                    
+                    DDIA笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../arch/ddia-1.html">
+            
+                <a href="../arch/ddia-1.html">
+            
+                    
+                        <b>2.2.2.</b>
+                    
+                    DDIA笔记1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../arch/ddia-2.html">
+            
+                <a href="../arch/ddia-2.html">
+            
+                    
+                        <b>2.2.3.</b>
+                    
+                    DDIA笔记2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../arch/ddia-3.html">
+            
+                <a href="../arch/ddia-3.html">
+            
+                    
+                        <b>2.2.4.</b>
+                    
+                    DDIA笔记3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5" data-path="../arch/ddia-4.html">
+            
+                <a href="../arch/ddia-4.html">
+            
+                    
+                        <b>2.2.5.</b>
+                    
+                    DDIA笔记4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6" data-path="../arch/ddia-5.html">
+            
+                <a href="../arch/ddia-5.html">
+            
+                    
+                        <b>2.2.6.</b>
+                    
+                    DDIA笔记5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7" data-path="../arch/about-consistency.html">
+            
+                <a href="../arch/about-consistency.html">
+            
+                    
+                        <b>2.2.7.</b>
+                    
+                    关于一致性
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../liyunhua/">
+            
+                <a href="../liyunhua/">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    从0开始学架构
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../liyunhua/learn-arch-from-zero-1.html">
+            
+                <a href="../liyunhua/learn-arch-from-zero-1.html">
+            
+                    
+                        <b>2.3.1.</b>
+                    
+                    从0开始学架构1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../liyunhua/learn-arch-from-zero-2.html">
+            
+                <a href="../liyunhua/learn-arch-from-zero-2.html">
+            
+                    
+                        <b>2.3.2.</b>
+                    
+                    从0开始学架构2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../liyunhua/learn-arch-from-zero-3.html">
+            
+                <a href="../liyunhua/learn-arch-from-zero-3.html">
+            
+                    
+                        <b>2.3.3.</b>
+                    
+                    从0开始学架构3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="../liyunhua/learn-arch-from-zero-4.html">
+            
+                <a href="../liyunhua/learn-arch-from-zero-4.html">
+            
+                    
+                        <b>2.3.4.</b>
+                    
+                    从0开始学架构4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.5" data-path="../liyunhua/learn-arch-from-zero-5.html">
+            
+                <a href="../liyunhua/learn-arch-from-zero-5.html">
+            
+                    
+                        <b>2.3.5.</b>
+                    
+                    从0开始学架构5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6" data-path="../liyunhua/learn-arch-from-zero-6.html">
+            
+                <a href="../liyunhua/learn-arch-from-zero-6.html">
+            
+                    
+                        <b>2.3.6.</b>
+                    
+                    从0开始学架构6
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../haozi/">
+            
+                <a href="../haozi/">
+            
+                    
+                        <b>2.4.</b>
+                    
+                    左耳听风
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../haozi/0.html">
+            
+                <a href="../haozi/0.html">
+            
+                    
+                        <b>2.4.1.</b>
+                    
+                    成长
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../haozi/1.html">
+            
+                <a href="../haozi/1.html">
+            
+                    
+                        <b>2.4.2.</b>
+                    
+                    经验之谈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="../haozi/2.html">
+            
+                <a href="../haozi/2.html">
+            
+                    
+                        <b>2.4.3.</b>
+                    
+                    分布式系统架构的本质
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.4" data-path="../haozi/3.html">
+            
+                <a href="../haozi/3.html">
+            
+                    
+                        <b>2.4.4.</b>
+                    
+                    编程范式游记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.5" data-path="../haozi/4.html">
+            
+                <a href="../haozi/4.html">
+            
+                    
+                        <b>2.4.5.</b>
+                    
+                    分布式系统设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.6" data-path="../haozi/5.html">
+            
+                <a href="../haozi/5.html">
+            
+                    
+                        <b>2.4.6.</b>
+                    
+                    程序员练级攻略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.7" data-path="../haozi/6.html">
+            
+                <a href="../haozi/6.html">
+            
+                    
+                        <b>2.4.7.</b>
+                    
+                    高效学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.8" data-path="../haozi/7.html">
+            
+                <a href="../haozi/7.html">
+            
+                    
+                        <b>2.4.8.</b>
+                    
+                    高效沟通
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../mysql/">
+            
+                <a href="../mysql/">
+            
+                    
+                        <b>2.5.</b>
+                    
+                    mysql
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1" data-path="../mysql/lecture-on-mysql-1.html">
+            
+                <a href="../mysql/lecture-on-mysql-1.html">
+            
+                    
+                        <b>2.5.1.</b>
+                    
+                    mysql实战45讲1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.2" data-path="../mysql/lecture-on-mysql-2.html">
+            
+                <a href="../mysql/lecture-on-mysql-2.html">
+            
+                    
+                        <b>2.5.2.</b>
+                    
+                    mysql实战45讲2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.3" data-path="../mysql/lecture-on-mysql-3.html">
+            
+                <a href="../mysql/lecture-on-mysql-3.html">
+            
+                    
+                        <b>2.5.3.</b>
+                    
+                    mysql实战45讲3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.4" data-path="../mysql/lecture-on-mysql-4.html">
+            
+                <a href="../mysql/lecture-on-mysql-4.html">
+            
+                    
+                        <b>2.5.4.</b>
+                    
+                    mysql实战45讲4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.5" data-path="../mysql/lecture-on-mysql-5.html">
+            
+                <a href="../mysql/lecture-on-mysql-5.html">
+            
+                    
+                        <b>2.5.5.</b>
+                    
+                    mysql实战45讲5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.6" data-path="../mysql/locks-in-mysql.html">
+            
+                <a href="../mysql/locks-in-mysql.html">
+            
+                    
+                        <b>2.5.6.</b>
+                    
+                    mysql锁分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../cpp/">
+            
+                <a href="../cpp/">
+            
+                    
+                        <b>2.6.</b>
+                    
+                    cpp
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.6.1" data-path="../cpp/optimizing-cpp.html">
+            
+                <a href="../cpp/optimizing-cpp.html">
+            
+                    
+                        <b>2.6.1.</b>
+                    
+                    optimizing cpp笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.2" data-path="../cpp/datetime.html">
+            
+                <a href="../cpp/datetime.html">
+            
+                    
+                        <b>2.6.2.</b>
+                    
+                    datetime函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.3" data-path="../cpp/thread.html">
+            
+                <a href="../cpp/thread.html">
+            
+                    
+                        <b>2.6.3.</b>
+                    
+                    std::thread
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.4" data-path="../cpp/gtest-template.html">
+            
+                <a href="../cpp/gtest-template.html">
+            
+                    
+                        <b>2.6.4.</b>
+                    
+                    gtest示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.5" data-path="../cpp/c++-interview.html">
+            
+                <a href="../cpp/c++-interview.html">
+            
+                    
+                        <b>2.6.5.</b>
+                    
+                    c++面试题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../go/">
+            
+                <a href="../go/">
+            
+                    
+                        <b>2.7.</b>
+                    
+                    go
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.7.1" data-path="../go/go-interview.html">
+            
+                <a href="../go/go-interview.html">
+            
+                    
+                        <b>2.7.1.</b>
+                    
+                    go面试题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="../redis/">
+            
+                <a href="../redis/">
+            
+                    
+                        <b>2.8.</b>
+                    
+                    redis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.8.1" data-path="../redis/redis-memory.html">
+            
+                <a href="../redis/redis-memory.html">
+            
+                    
+                        <b>2.8.1.</b>
+                    
+                    Redis内存管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="./">
+            
+                <a href="./">
+            
+                    
+                        <b>2.9.</b>
+                    
+                    ceph
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.9.1" data-path="introduction-to-ceph.html">
+            
+                <a href="introduction-to-ceph.html">
+            
+                    
+                        <b>2.9.1.</b>
+                    
+                    ceph 简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9.2" data-path="deploy-ceph.html">
+            
+                <a href="deploy-ceph.html">
+            
+                    
+                        <b>2.9.2.</b>
+                    
+                    部署 ceph 集群
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9.3" data-path="using-ceph-rbd.html">
+            
+                <a href="using-ceph-rbd.html">
+            
+                    
+                        <b>2.9.3.</b>
+                    
+                    使用 ceph rbd 块设备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9.4" data-path="config-rgw-with-nginx.html">
+            
+                <a href="config-rgw-with-nginx.html">
+            
+                    
+                        <b>2.9.4.</b>
+                    
+                    配置 nginx 和 rgw
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="../net/">
+            
+                <a href="../net/">
+            
+                    
+                        <b>2.10.</b>
+                    
+                    网络
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.10.1" data-path="../net/about-tcp.html">
+            
+                <a href="../net/about-tcp.html">
+            
+                    
+                        <b>2.10.1.</b>
+                    
+                    TCP小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="../misc/">
+            
+                <a href="../misc/">
+            
+                    
+                        <b>2.11.</b>
+                    
+                    杂项
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.11.1" data-path="../misc/how-to-ask-recruited-question.html">
+            
+                <a href="../misc/how-to-ask-recruited-question.html">
+            
+                    
+                        <b>2.11.1.</b>
+                    
+                    面试中如何提问
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11.2" data-path="../misc/it-interview-questions.html">
+            
+                <a href="../misc/it-interview-questions.html">
+            
+                    
+                        <b>2.11.2.</b>
+                    
+                    技术面试题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11.3" data-path="../misc/how-to-make-a-good-presentation.html">
+            
+                <a href="../misc/how-to-make-a-good-presentation.html">
+            
+                    
+                        <b>2.11.3.</b>
+                    
+                    如何做技术演讲
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11.4" data-path="../misc/improve-oneself.html">
+            
+                <a href="../misc/improve-oneself.html">
+            
+                    
+                        <b>2.11.4.</b>
+                    
+                    个人提升
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11.5" data-path="../misc/how-to-learn-cs-english.html">
+            
+                <a href="../misc/how-to-learn-cs-english.html">
+            
+                    
+                        <b>2.11.5.</b>
+                    
+                    如何学计算机专业英语
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11.6" data-path="../misc/markdown-grammar.html">
+            
+                <a href="../misc/markdown-grammar.html">
+            
+                    
+                        <b>2.11.6.</b>
+                    
+                    Markdown简明语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">文章</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../blog/cpp/">
+            
+                <a href="../../blog/cpp/">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    cpp
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../blog/cpp/note-on-c++0x-simplify-grammar.html">
+            
+                <a href="../../blog/cpp/note-on-c++0x-simplify-grammar.html">
+            
+                    
+                        <b>3.1.1.</b>
+                    
+                    C++0x学习之简洁语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../blog/cpp/note-on-c++0x-type-deduction.html">
+            
+                <a href="../../blog/cpp/note-on-c++0x-type-deduction.html">
+            
+                    
+                        <b>3.1.2.</b>
+                    
+                    C++0x 学习之类、函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../blog/cpp/google-c++-note.html">
+            
+                <a href="../../blog/cpp/google-c++-note.html">
+            
+                    
+                        <b>3.1.3.</b>
+                    
+                    google c++代码规范分享
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../../blog/cpp/c++-vector.html">
+            
+                <a href="../../blog/cpp/c++-vector.html">
+            
+                    
+                        <b>3.1.4.</b>
+                    
+                    一次 C++ vector 的误用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../../blog/cpp/gcc-inline-assembly.html">
+            
+                <a href="../../blog/cpp/gcc-inline-assembly.html">
+            
+                    
+                        <b>3.1.5.</b>
+                    
+                    从CAS到内嵌汇编
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../../blog/cpp/tuxedo-tuning-with-gprof.html">
+            
+                <a href="../../blog/cpp/tuxedo-tuning-with-gprof.html">
+            
+                    
+                        <b>3.1.6.</b>
+                    
+                    Tuxedo性能调优之使用gprof
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../blog/linux/">
+            
+                <a href="../../blog/linux/">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../blog/linux/about_io.html">
+            
+                <a href="../../blog/linux/about_io.html">
+            
+                    
+                        <b>3.2.1.</b>
+                    
+                    关于IO的基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../../blog/linux/quote-marks-in-bash.html">
+            
+                <a href="../../blog/linux/quote-marks-in-bash.html">
+            
+                    
+                        <b>3.2.2.</b>
+                    
+                    bash 里面的引号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../../blog/linux/delete-carriage-return.html">
+            
+                <a href="../../blog/linux/delete-carriage-return.html">
+            
+                    
+                        <b>3.2.3.</b>
+                    
+                    删除 Linux 中的 ^M
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4" data-path="../../blog/linux/linux-core.html">
+            
+                <a href="../../blog/linux/linux-core.html">
+            
+                    
+                        <b>3.2.4.</b>
+                    
+                    Linux Core 基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5" data-path="../../blog/linux/crontab.html">
+            
+                <a href="../../blog/linux/crontab.html">
+            
+                    
+                        <b>3.2.5.</b>
+                    
+                    Linux 计划任务 crontab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.6" data-path="../../blog/linux/fork-cow.html">
+            
+                <a href="../../blog/linux/fork-cow.html">
+            
+                    
+                        <b>3.2.6.</b>
+                    
+                    如何证明fork用了COW
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.7" data-path="../../blog/linux/splinlock.html">
+            
+                <a href="../../blog/linux/splinlock.html">
+            
+                    
+                        <b>3.2.7.</b>
+                    
+                    Linux 自旋锁 spinlock 的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.8" data-path="../../blog/linux/who-stolen-ur-disk.html">
+            
+                <a href="../../blog/linux/who-stolen-ur-disk.html">
+            
+                    
+                        <b>3.2.8.</b>
+                    
+                    谁偷了你的磁盘
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">附录</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                        <b>4.1.</b>
+                    
+                    说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >ceph 简介</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="ceph-&#x7B80;&#x4ECB;">Ceph &#x7B80;&#x4ECB;</h1>
+<p>Ceph &#x662F;&#x4E00;&#x4E2A;&#x7EDF;&#x4E00;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#xFF0C;&#x8BBE;&#x8BA1;&#x521D;&#x8877;&#x662F;&#x63D0;&#x4F9B;&#x8F83;&#x597D;&#x7684;&#x6027;&#x80FD;&#x3001;&#x53EF;&#x9760;&#x6027;&#x548C;&#x53EF;&#x6269;&#x5C55;&#x6027;&#x3002;Ceph &#x9879;&#x76EE;&#x6700;&#x65E9;&#x8D77;&#x6E90;&#x4E8E; Sage &#x5C31;&#x8BFB;&#x535A;&#x58EB;&#x671F;&#x95F4;&#x7684;&#x5DE5;&#x4F5C;&#xFF08;&#x6700;&#x65E9;&#x7684;&#x6210;&#x679C;&#x4E8E;2004&#x5E74;&#x53D1;&#x8868;&#xFF09;&#xFF0C;&#x5E76;&#x968F;&#x540E;&#x8D21;&#x732E;&#x7ED9;&#x5F00;&#x6E90;&#x793E;&#x533A;&#x3002;&#x5728;&#x7ECF;&#x8FC7;&#x4E86;&#x6570;&#x5E74;&#x7684;&#x53D1;&#x5C55;&#x4E4B;&#x540E;&#xFF0C;&#x76EE;&#x524D;&#x5DF2;&#x5F97;&#x5230;&#x4F17;&#x591A;&#x4E91;&#x8BA1;&#x7B97;&#x5382;&#x5546;&#x7684;&#x652F;&#x6301;&#x5E76;&#x88AB;&#x5E7F;&#x6CDB;&#x5E94;&#x7528;&#x3002;</p>
+<p>&#x672C;&#x6587;&#x8BD5;&#x56FE;&#x7B80;&#x5355;&#x660E;&#x4E86;&#x7684;&#x4ECB;&#x7ECD; ceph &#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#x548C;&#x7EC4;&#x4EF6;&#xFF0C;&#x4EE5;&#x5BF9; ceph &#x6709;&#x5168;&#x9762;&#x6E05;&#x6670;&#x7684;&#x4E86;&#x89E3;&#x3002;</p>
+<h2 id="1-&#x6838;&#x5FC3;&#x7EC4;&#x4EF6;">1. &#x6838;&#x5FC3;&#x7EC4;&#x4EF6;</h2>
+<p>&#x4E00;&#x4E2A; ceph &#x96C6;&#x7FA4;&#x901A;&#x5E38;&#x6709;&#x591A;&#x4E2A;&#x7EC4;&#x4EF6;&#xFF08;&#x8FDB;&#x7A0B;&#xFF09;&#xFF0C;&#x5305;&#x62EC; monitor&#x3001;osd&#x3001;mds&#x3001;radosgw &#x7B49;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;
+<img src="../../images/0f768c73-eff9-471d-a7e7-9988b86d3dc1.png" alt="image"></p>
+<ul>
+<li><strong>MON&#xFF1A;</strong> Monitor<ul>
+<li>&#x76D1;&#x63A7;&#x6574;&#x4E2A;&#x96C6;&#x7FA4;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x7EF4;&#x62A4;&#x96C6;&#x7FA4;&#x7684; Cluster MAP&#xFF0C;&#x4FDD;&#x8BC1;&#x96C6;&#x7FA4;&#x6570;&#x636E;&#x7684;&#x4E00;&#x81F4;&#x6027;&#x3002;Cluster MAP &#x63CF;&#x8FF0;&#x4E86;&#x5BF9;&#x8C61;&#x5757;&#x5B58;&#x50A8;&#x7684;&#x7269;&#x7406;&#x4F4D;&#x7F6E;&#xFF08;OSD&#x7684;&#x5143;&#x6570;&#x636E;&#xFF09;</li>
+<li>&#x4E00;&#x4E2A; Ceph &#x96C6;&#x7FA4;&#x9700;&#x8981;&#x591A;&#x4E2A; Monitor &#x901A;&#x8FC7; Paxos &#x534F;&#x8BAE;&#x7EC4;&#x6210;&#x7684;&#x5C0F;&#x96C6;&#x7FA4;</li>
+<li>&#x5BF9;&#x5E94;&#x8FDB;&#x7A0B;&#x4E3A; ceph-mon</li>
+</ul>
+</li>
+<li><strong>OSD&#xFF1A;</strong> Object Storage Device<ul>
+<li>&#x7528;&#x4E8E;&#x96C6;&#x7FA4;&#x4E2D;&#x6240;&#x6709;&#x6570;&#x636E;&#x4E0E;&#x5BF9;&#x8C61;&#x7684;&#x5B58;&#x50A8;&#xFF0C;&#x5904;&#x7406;&#x96C6;&#x7FA4;&#x6570;&#x636E;&#x7684;&#x590D;&#x5236;&#x3001;&#x6062;&#x590D;&#x3001;&#x56DE;&#x586B;&#x3001;&#x518D;&#x5747;&#x8861;&#x3002;&#x5E76;&#x5411;&#x5176;&#x4ED6; OSD &#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x53D1;&#x9001;&#x5FC3;&#x8DF3;&#xFF0C;&#x5411; Mon &#x63D0;&#x4F9B;&#x76D1;&#x63A7;&#x4FE1;&#x606F;</li>
+<li>&#x4E00;&#x4E2A; Ceph &#x96C6;&#x7FA4;&#x4E00;&#x822C;&#x90FD;&#x6709;&#x5F88;&#x591A; OSD&#xFF0C;&#x4E00;&#x822C;&#x4E00;&#x5757;&#x78C1;&#x76D8;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A; OSD</li>
+<li>&#x5BF9;&#x5E94;&#x8FDB;&#x7A0B;&#x4E3A; ceph-osd</li>
+</ul>
+</li>
+<li><strong>MDS&#xFF1A;</strong> Ceph Metadata Server<ul>
+<li>&#x4E3A; Ceph &#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x63D0;&#x4F9B;&#x5143;&#x6570;&#x636E;&#x8BA1;&#x7B97;&#x3001;&#x7F13;&#x5B58;&#x4E0E;&#x540C;&#x6B65;&#xFF0C;&#x5728; ceph &#x4E2D;&#xFF0C;&#x5143;&#x6570;&#x636E;&#x4E5F;&#x662F;&#x5B58;&#x50A8;&#x5728; OSD &#x8282;&#x70B9;&#x4E2D;&#x7684;&#xFF0C;MDS &#x7C7B;&#x4F3C;&#x4E8E;&#x5143;&#x6570;&#x636E;&#x7684;&#x4EE3;&#x7406;&#x7F13;&#x5B58;&#x670D;&#x52A1;&#x5668;</li>
+<li>MDS &#x8FDB;&#x7A0B;&#x5E76;&#x4E0D;&#x662F;&#x5FC5;&#x987B;&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x53EA;&#x6709;&#x9700;&#x8981;&#x4F7F;&#x7528; CephFS &#x65F6;&#xFF0C;&#x624D;&#x9700;&#x8981;&#x914D;&#x7F6E; MDS &#x8282;&#x70B9;</li>
+<li>&#x5BF9;&#x5E94;&#x8FDB;&#x7A0B;&#x4E3A; ceph-mds</li>
+</ul>
+</li>
+<li><strong>RGW&#xFF1A;</strong> RADOS gateway<ul>
+<li>RADOS &#x5BF9;&#x8C61;&#x5B58;&#x50A8;&#x7684;&#x4E00;&#x4E2A; HTTP REST &#x7F51;&#x5173;&#xFF0C;&#x662F; Ceph &#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;&#x5B83;&#x662F;&#x7528; libfcgi &#x5B9E;&#x73B0;&#x7684;&#x4E00;&#x4E2A; FastCGI &#x6A21;&#x5757;&#xFF0C;&#x53EF;&#x8054;&#x5408;&#x4EFB;&#x4F55;&#x652F;&#x6301; FastCGI &#x529F;&#x80FD;&#x7684;&#x7F51;&#x9875;&#x670D;&#x52A1;&#x5668;&#x4F7F;&#x7528;</li>
+<li>&#x5BF9;&#x5E94;&#x8FDB;&#x7A0B;&#x4E3A; radosgw</li>
+</ul>
+</li>
+<li><strong>MGR&#xFF1A;</strong> Ceph Manager Daemon<ul>
+<li>ceph luminous &#x7248;&#x672C;&#x4E2D;&#x65B0;&#x589E;&#x52A0;&#x7684;&#x7EC4;&#x4EF6;</li>
+<li>&#x8BE5;&#x7EC4;&#x4EF6;&#x7684;&#x4E3B;&#x8981;&#x4F5C;&#x7528;&#x662F;&#x5206;&#x62C5;&#x548C;&#x6269;&#x5C55; monitor &#x7684;&#x90E8;&#x5206;&#x529F;&#x80FD;&#xFF0C;&#x51CF;&#x8F7B; monitor &#x7684;&#x8D1F;&#x62C5;&#xFF0C;&#x8BA9;&#x66F4;&#x597D;&#x5730;&#x7BA1;&#x7406; ceph &#x5B58;&#x50A8;&#x7CFB;&#x7EDF;</li>
+<li>&#x5BF9;&#x5E94;&#x8FDB;&#x7A0B;&#x4E3A; ceph-mgr</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-&#x6574;&#x4F53;&#x67B6;&#x6784;">2. &#x6574;&#x4F53;&#x67B6;&#x6784;</h2>
+<p><img src="../../images/140dbf54-6d3a-4812-b543-b6ba66738245.png" alt="image"></p>
+<p>Ceph &#x7684;&#x5E95;&#x5C42;&#x662F; RADOS&#xFF0C;RADOS &#x672C;&#x8EAB;&#x4E5F;&#x662F;&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#xFF0C;Ceph &#x6240;&#x6709;&#x7684;&#x5B58;&#x50A8;&#x529F;&#x80FD;&#x90FD;&#x662F;&#x57FA;&#x4E8E; RADOS &#x5B9E;&#x73B0;&#x3002;RADOS &#x91C7;&#x7528; C++ &#x5F00;&#x53D1;&#xFF0C;&#x6240;&#x63D0;&#x4F9B;&#x7684;&#x539F;&#x751F; librados API &#x5305;&#x62EC; C &#x548C; C++&#x4E24;&#x79CD;&#x3002;Ceph &#x7684;&#x4E0A;&#x5C42;&#x5E94;&#x7528;&#x8C03;&#x7528;&#x672C;&#x673A;&#x4E0A;&#x7684; librados API&#xFF0C;&#x518D;&#x7531;&#x540E;&#x8005;&#x901A;&#x8FC7; socket &#x4E0E; RADOS &#x96C6;&#x7FA4;&#x4E2D;&#x5176;&#x4ED6;&#x8282;&#x70B9;&#x901A;&#x4FE1;&#x5E76;&#x5B8C;&#x6210;&#x5404;&#x79CD;&#x64CD;&#x4F5C;&#x3002;</p>
+<ul>
+<li><strong>RADOS</strong>&#xFF1A;RADOS &#x5168;&#x79F0; Reliable Autonomic Distributed Object Store&#xFF0C;&#x662F;&#x5BF9;&#x8C61;&#x5B58;&#x50A8;&#x96C6;&#x7FA4;&#x7684;&#x6838;&#x5FC3;&#x7EC4;&#x4EF6;&#xFF0C;Ceph &#x96C6;&#x7FA4;&#x7684;&#x7CBE;&#x534E;&#xFF0C;&#x7528;&#x6237;&#x5B9E;&#x73B0;&#x6570;&#x636E;&#x5206;&#x914D;&#x3001;Failover &#x7B49;&#x96C6;&#x7FA4;&#x64CD;&#x4F5C;</li>
+<li><strong>Libradio</strong>&#xFF1A;Librados &#x662F; Rados&#x63D0;&#x4F9B;&#x5E93;&#xFF0C;&#x56E0;&#x4E3A; RADOS &#x662F;&#x534F;&#x8BAE;&#x5F88;&#x96BE;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#xFF0C;&#x56E0;&#x6B64;&#x4E0A;&#x5C42;&#x7684; RBD&#x3001;RGW &#x548C; CephFS &#x90FD;&#x662F;&#x901A;&#x8FC7; librados &#x8BBF;&#x95EE;&#x7684;&#xFF0C;&#x76EE;&#x524D;&#x63D0;&#x4F9B; PHP&#x3001;Ruby&#x3001;Java&#x3001;Python&#x3001;C &#x548C; C++ &#x652F;&#x6301;</li>
+</ul>
+<p>Ceph &#x76EE;&#x524D;&#x63D0;&#x4F9B;&#x4E09;&#x79CD;&#x5B58;&#x50A8;&#x65B9;&#x5F0F;&#x63A5;&#x53E3;&#xFF1A;</p>
+<ul>
+<li><strong>&#x5BF9;&#x8C61;&#x5B58;&#x50A8;&#xFF08;RGW&#xFF0C;RADOS gateway&#xFF09;&#xFF1A;</strong> Ceph &#x5BF9;&#x8C61;&#x5B58;&#x50A8;&#x670D;&#x52A1;&#x63D0;&#x4F9B;&#x4E86; REST &#x98CE;&#x683C;&#x7684; API &#xFF0C;&#x5B83;&#x6709;&#x4E0E; Amazon S3 &#x548C; OpenStack Swift &#x517C;&#x5BB9;&#x7684;&#x63A5;&#x53E3;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x901A;&#x5E38;&#x610F;&#x4E49;&#x7684;&#x952E;&#x503C;&#x5B58;&#x50A8;&#xFF0C;&#x5176;&#x63A5;&#x53E3;&#x5C31;&#x662F;&#x7B80;&#x5355;&#x7684; GET&#x3001;PUT&#x3001;DEL &#x548C;&#x5176;&#x4ED6;&#x6269;&#x5C55;&#xFF1B;</li>
+<li><strong>&#x5757;&#x5B58;&#x50A8;&#xFF08;RBD&#xFF0C;RADOS block device&#xFF09;&#xFF1A;</strong> RBD &#x901A;&#x8FC7; Linux &#x5185;&#x6838;&#x5BA2;&#x6237;&#x7AEF;&#x548C; QEMU/KVM &#x9A71;&#x52A8;&#x6765;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x5206;&#x5E03;&#x5F0F;&#x7684;&#x5757;&#x8BBE;&#x5907;&#x3002;RBD &#x662F;&#x901A;&#x8FC7; librbd &#x5E93;&#x5BF9;&#x5E94;&#x7528;&#x63D0;&#x4F9B;&#x5757;&#x5B58;&#x50A8;&#xFF0C;&#x4E3B;&#x8981;&#x9762;&#x5411;&#x4E91;&#x5E73;&#x53F0;&#x7684;&#x865A;&#x62DF;&#x673A;&#x63D0;&#x4F9B;&#x865A;&#x62DF;&#x78C1;&#x76D8;&#xFF1B;&#x76EE;&#x524D; RBD &#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x4E00;&#x79CD;&#x662F;&#x76F4;&#x63A5;&#x5728;&#x7528;&#x6237;&#x6001;&#x5B9E;&#x73B0;&#xFF0C; &#x901A;&#x8FC7; QEMU Driver &#x4F9B; KVM &#x865A;&#x62DF;&#x673A;&#x4F7F;&#x7528;&#xFF1B;&#x53E6;&#x4E00;&#x79CD;&#x662F;&#x5728;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#x6001;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x5185;&#x6838;&#x6A21;&#x5757;&#xFF0C;&#x901A;&#x8FC7;&#x8BE5;&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x628A;&#x5757;&#x8BBE;&#x5907;&#x6620;&#x5C04;&#x7ED9;&#x7269;&#x7406;&#x4E3B;&#x673A;&#xFF0C;&#x7531;&#x7269;&#x7406;&#x4E3B;&#x673A;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#xFF1B;</li>
+<li><strong>&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x5B58;&#x50A8;&#xFF08;Ceph File System&#xFF09;&#xFF1A;</strong> Ceph FS &#x901A;&#x8FC7; Linux &#x5185;&#x6838;&#x5BA2;&#x6237;&#x7AEF;&#x548C; FUSE &#x6765;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x517C;&#x5BB9; POSIX &#x7684;&#x6587;&#x6863;&#x7CFB;&#x7EDF;&#x3002;Ceph &#x6587;&#x6863;&#x7CFB;&#x7EDF;&#x670D;&#x52A1;&#x63D0;&#x4F9B;&#x4E86;&#x517C;&#x5BB9; POSIX &#x7684;&#x6587;&#x6863;&#x7CFB;&#x7EDF;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6302;&#x8F7D;&#x4E3A;&#x7528;&#x6237;&#x7A7A;&#x95F4;&#x6587;&#x6863;&#x7CFB;&#x7EDF;&#xFF1B;</li>
+</ul>
+<h2 id="3-&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;">3. &#x5B58;&#x50A8;&#x8FC7;&#x7A0B;</h2>
+<p><img src="../../images/1dbdcda6-0d2a-4dfb-9d21-f38fb4237e95.png" alt="image"></p>
+<p>pool &#x662F;&#x5B58;&#x50A8;&#x5BF9;&#x8C61;&#x7684;&#x903B;&#x8F91;&#x5206;&#x533A;&#xFF0C;&#x5B83;&#x89C4;&#x5B9A;&#x4E86;&#x6570;&#x636E;&#x5197;&#x4F59;&#x7684;&#x7C7B;&#x578B;&#x548C;&#x5BF9;&#x5E94;&#x7684;&#x526F;&#x672C;&#x5206;&#x5E03;&#x7B56;&#x7565;&#x3002;&#x521B;&#x5EFA; pool &#x7684;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x526F;&#x672C;&#x6570; <code>size</code>&#x3001; PG &#x6570;&#x91CF; <code>pg-num</code>&#x3001;PGP &#x6570;&#x91CF; <code>pgp-num</code> &#x548C;&#x526F;&#x672C;&#x5206;&#x5E03;&#x7B56;&#x7565;&#xFF08;&#x526F;&#x672C; <code>replicated</code>  &#x6216; &#x7EA0;&#x5220;&#x7801;  <code>erasure</code>&#xFF09;&#x3002;&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF0C;PG &#x662F;&#x6307;&#x5B9A;&#x5B58;&#x50A8;&#x6C60;&#x5B58;&#x50A8;&#x5BF9;&#x8C61;&#x7684;&#x76EE;&#x5F55;&#x6709;&#x591A;&#x5C11;&#x4E2A;&#xFF0C;&#x76F8;&#x540C; PG &#x5185;&#x7684;&#x5BF9;&#x8C61;&#x90FD;&#x4F1A;&#x653E;&#x5230;&#x76F8;&#x540C;&#x7684;&#x786C;&#x76D8;&#x4E0A;&#xFF0C;PGP &#x662F;&#x5B58;&#x50A8;&#x6C60; PG &#x7684; OSD &#x5206;&#x5E03;&#x7EC4;&#x5408;&#x4E2A;&#x6570;&#x3002;
+&#x5F53;&#x4E00;&#x4E2A;  file &#x5B58;&#x5165; pool &#x65F6;&#xFF0C;&#x6709;3&#x4E2A;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<ol>
+<li>&#x628A; file &#x5207;&#x5206;&#x4E3A; RADOS &#x5C42;&#x7684; object</li>
+<li>&#x6BCF;&#x4E2A; object &#x901A;&#x8FC7;&#x54C8;&#x5E0C;&#x7B97;&#x6CD5;&#x6620;&#x5C04;&#x5230;&#x552F;&#x4E00;&#x7684; PG</li>
+<li>&#x6BCF;&#x4E2A; PG &#x901A;&#x8FC7; CRUSH &#x7B97;&#x6CD5;&#x6620;&#x5C04;&#x5230;&#x5B9E;&#x9645;&#x5B58;&#x50A8;&#x5355;&#x5143; OSD</li>
+</ol>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x6BB5;&#x4F2A;&#x4EE3;&#x7801;&#xFF0C;&#x7B80;&#x8981;&#x63CF;&#x8FF0;&#x4E86; ceph &#x7684;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x6D41;&#x7A0B;&#xFF1A;</p>
+<pre class="language-"><code>locator = object_name
+obj_hash = hash(locator)
+pg = obj_hash % num_pg
+osds_for_pg = crush(pg) # returns a list of osds
+primary = osds_for_pg[0]
+replicas = osds_for_pg[1:]
+</code></pre><p>object &#x662F; ceph &#x6700;&#x5E95;&#x5C42;&#x7684;&#x5B58;&#x50A8;&#x5355;&#x5143;&#xFF0C;&#x6BCF;&#x4E2A; object &#x5305;&#x542B;&#x5143;&#x6570;&#x636E;&#x548C;&#x539F;&#x59CB;&#x6570;&#x636E;&#xFF0C;object &#x4E00;&#x822C;&#x4E3A; 2MB &#x6216; 4MB&#x3002;&#x4F46; object &#x4E0D;&#x4F1A;&#x76F4;&#x63A5;&#x5B58;&#x50A8;&#x8FDB; OSD &#x4E2D;&#xFF0C;&#x539F;&#x56E0;&#x4E3B;&#x8981;&#x6709;2&#x70B9;&#xFF1A;</p>
+<ul>
+<li>object &#x5F88;&#x5C0F;&#xFF0C;&#x5728;&#x4E00;&#x4E2A;&#x5927;&#x89C4;&#x6A21;&#x7684;&#x96C6;&#x7FA4;&#x4E2D;&#x53EF;&#x80FD;&#x6709;&#x51E0;&#x767E;&#x5230;&#x51E0;&#x5343;&#x4E07;&#x4E2A; object&#xFF0C;&#x904D;&#x5386; object &#x5BFB;&#x5740;&#x901F;&#x5EA6;&#x7F13;&#x6162;</li>
+<li>&#x5982;&#x679C;&#x5C06; object &#x76F4;&#x63A5;&#x901A;&#x8FC7;&#x67D0;&#x79CD;&#x56FA;&#x5B9A;&#x6620;&#x5C04;&#x7684;&#x54C8;&#x5E0C;&#x7B97;&#x6CD5;&#x6620;&#x5C04;&#x5230; OSD &#x4E0A;&#xFF0C;&#x5F53;&#x8FD9;&#x4E2A; OSD &#x635F;&#x574F;&#x65F6;&#xFF0C;&#x5BF9;&#x8C61;&#x65E0;&#x6CD5;&#x81EA;&#x52A8;&#x8FC1;&#x79FB;&#x81F3;&#x5176;&#x4ED6; OSD &#x4E0A;&#x9762;&#xFF08;&#x6620;&#x5C04;&#x51FD;&#x6570;&#x4E0D;&#x5141;&#x8BB8;&#xFF09;</li>
+</ul>
+<p>&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x4E0A;&#x8FF0;&#x95EE;&#x9898;&#xFF0C;ceph &#x5F15;&#x5165;&#x4E86;&#x5F52;&#x7F6E;&#x7EC4;&#x7684;&#x6982;&#x5FF5; PG&#xFF0C;PG &#x662F;&#x4E00;&#x4E2A;&#x903B;&#x8F91;&#x6982;&#x5FF5;&#xFF0C;&#x5B83;&#x5728;&#x6570;&#x636E;&#x5BFB;&#x5740;&#x65F6;&#x7C7B;&#x4F3C;&#x4E8E;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x7D22;&#x5F15;&#xFF1A;&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x90FD;&#x4F1A;&#x56FA;&#x5B9A;&#x6620;&#x5C04;&#x8FDB;&#x4E00;&#x4E2A; PG &#x4E2D;&#x3002;PG &#x548C; OSD &#x95F4;&#x662F;&#x591A;&#x5BF9;&#x591A;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#xFF0C;&#x5728;&#x6570;&#x636E;&#x8FC1;&#x79FB;&#x65F6;&#xFF0C;&#x4E5F;&#x662F;&#x4EE5; PG &#x4F5C;&#x4E3A;&#x57FA;&#x672C;&#x5355;&#x4F4D;&#x8FDB;&#x884C;&#x8FC1;&#x79FB;&#xFF0C;ceph &#x4E0D;&#x4F1A;&#x76F4;&#x63A5;&#x64CD;&#x4F5C; object&#x3002;</p>
+<p>PGP &#x662F; PG &#x5B58;&#x653E; OSD &#x7684;&#x4E00;&#x79CD;&#x6392;&#x5217;&#x7EC4;&#x5408;&#xFF0C;&#x6BD4;&#x5982;&#x6709; 3 &#x4E2A;osd&#xFF0C;osd.1&#x3001;osd.2 &#x548C; osd.3&#xFF0C;&#x526F;&#x672C;&#x6570;&#x662F;2&#xFF0C;&#x5982;&#x679C; PGP &#x7684;&#x6570;&#x76EE;&#x4E3A;1&#xFF0C;&#x90A3;&#x4E48; PG &#x5B58;&#x653E;&#x7684; OSD &#x7EC4;&#x5408;&#x5C31;&#x53EA;&#x6709;&#x4E00;&#x79CD;&#xFF0C;&#x53EF;&#x80FD;&#x662F;<code>[osd.1,osd.2]</code>&#xFF0C;&#x6240;&#x6709;&#x7684; PG &#x4E3B;&#x4ECE;&#x526F;&#x672C;&#x5206;&#x522B;&#x5B58;&#x653E;&#x5230; osd.1 &#x548C; osd.2&#xFF0C;&#x5982;&#x679C; PGP &#x8BBE;&#x4E3A; 2&#xFF0C; OSD &#x7EC4;&#x5408;&#x6709;&#x4E24;&#x79CD;&#xFF0C;&#x53EF;&#x80FD;&#x662F; <code>[osd.1,osd.2]</code> &#x548C; <code>[osd.1,osd.3]</code>&#xFF0C;&#x5728;&#x4E00;&#x4E2A; PGP &#x7EC4;&#x5408;&#x4E2D;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A; osd &#x662F;&#x4E3B;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x4E3A;&#x526F;&#x672C;&#x3002;&#x4E00;&#x822C;&#x8BB2;&#x5C06; PG &#x548C; PGP &#x7684;&#x6570;&#x91CF;&#x8BBE;&#x7F6E;&#x4E3A;&#x76F8;&#x7B49;&#x3002;</p>
+<h2 id="4-&#x5176;&#x4ED6;">4. &#x5176;&#x4ED6;</h2>
+<p>PG &#x5BFB;&#x5740;&#x4F7F;&#x7528;&#x7684; CRUSH &#x7B97;&#x6CD5;&#x662F; ceph &#x7684;&#x4E24;&#x5927;&#x521B;&#x65B0;&#x4E4B;&#x4E00;&#x3002;&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF0C;ceph &#x6452;&#x5F03;&#x4E86;&#x4F20;&#x7EDF;&#x7684;&#x96C6;&#x4E2D;&#x5F0F;&#x5B58;&#x50A8;&#x5143;&#x6570;&#x636E;&#x5BFB;&#x5740;&#x7684;&#x65B9;&#x6848;&#xFF0C;&#x8F6C;&#x800C;&#x4F7F;&#x7528; CRUSH &#x7B97;&#x6CD5;&#x5B8C;&#x6210;&#x6570;&#x636E;&#x7684;&#x5BFB;&#x5740;&#x64CD;&#x4F5C;&#x3002;CRUSH &#x5728;&#x4E00;&#x81F4;&#x6027;&#x54C8;&#x5E0C;&#x57FA;&#x7840;&#x4E0A;&#x5F88;&#x597D;&#x7684;&#x8003;&#x8651;&#x4E86;&#x5BB9;&#x707E;&#x57DF;&#x7684;&#x9694;&#x79BB;&#xFF0C;&#x80FD;&#x591F;&#x5B9E;&#x73B0;&#x5404;&#x7C7B;&#x8D1F;&#x8F7D;&#x7684;&#x526F;&#x672C;&#x653E;&#x7F6E;&#x89C4;&#x5219;&#xFF0C;&#x4F8B;&#x5982;&#x8DE8;&#x673A;&#x623F;&#x3001;&#x673A;&#x67B6;&#x611F;&#x77E5;&#x7B49;&#x3002;CRUSH &#x7B97;&#x6CD5;&#x6709;&#x76F8;&#x5F53;&#x5F3A;&#x5927;&#x7684;&#x6269;&#x5C55;&#x6027;&#xFF0C;&#x7406;&#x8BBA;&#x4E0A;&#x652F;&#x6301;&#x6570;&#x5343;&#x4E2A;&#x5B58;&#x50A8;&#x8282;&#x70B9;&#x3002;</p>
+<script type="text/javascript">var className='atoc';</script> 
+
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; 9sheng all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-03-10 09:01:39
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: ceph">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="deploy-ceph.html" class="navigation navigation-next " aria-label="Next page: 部署 ceph 集群">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ceph 简介","level":"2.9.1","depth":2,"next":{"title":"部署 ceph 集群","level":"2.9.2","depth":2,"path":"note/ceph/deploy-ceph.md","ref":"note/ceph/deploy-ceph.md","articles":[]},"previous":{"title":"ceph","level":"2.9","depth":1,"path":"note/ceph/README.md","ref":"note/ceph/README.md","articles":[{"title":"ceph 简介","level":"2.9.1","depth":2,"path":"note/ceph/introduction-to-ceph.md","ref":"note/ceph/introduction-to-ceph.md","articles":[]},{"title":"部署 ceph 集群","level":"2.9.2","depth":2,"path":"note/ceph/deploy-ceph.md","ref":"note/ceph/deploy-ceph.md","articles":[]},{"title":"使用 ceph rbd 块设备","level":"2.9.3","depth":2,"path":"note/ceph/using-ceph-rbd.md","ref":"note/ceph/using-ceph-rbd.md","articles":[]},{"title":"配置 nginx 和 rgw","level":"2.9.4","depth":2,"path":"note/ceph/config-rgw-with-nginx.md","ref":"note/ceph/config-rgw-with-nginx.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-highlight","-livereload","include-codeblock","ace","atoc","prism","prism-themes","splitter","search-plus","sectionx","tbfed-pagefooter","toggle-chapters","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy 9sheng","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prism-themes/themes/prism-hopscotch.css"]},"ace":{},"atoc":{"addClass":true,"className":"atoc"},"splitter":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{"tag":"b"},"prism-themes":{},"include-codeblock":{"check":false,"edit":true,"fixlang":false,"lang":"","template":"ace","theme":"chrome","unindent":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"9sheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My TechBook","language":"zh-hans","output.name":"site","links":{},"gitbook":"3.2.3","description":"好记性不如烂笔头"},"file":{"path":"note/ceph/introduction-to-ceph.md","mtime":"2021-03-10T09:01:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-10T09:06:04.559Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ace/ace/ace.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ace/ace.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-atoc/atoc.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sectionx/sectionx.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
