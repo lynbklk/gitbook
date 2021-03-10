@@ -1,0 +1,58 @@
+{
+    "title": "My Tech Book",
+    "description": "好记性不如烂笔头",
+    "author": "benjamin",
+    "output.name": "site",
+    "language": "zh-hans",
+    "gitbook": "3.2.3",
+    "root": ".",
+    "structure": {
+        "readme": "README.md"
+    },
+    "links": {
+    },
+    "plugins": [
+        "-lunr",
+        "-search",
+        "-highlight",
+        "-livereload",
+        "include-codeblock",
+        "ace",
+        "atoc",
+        "prism",
+        "prism-themes",
+        "splitter",
+        "search-plus",
+        "sectionx",
+        "tbfed-pagefooter",
+        "toggle-chapters"
+    ],
+
+    "pluginsConfig": {
+        "theme-default": {
+            "showLevel": true
+        },
+        "prism": {
+            "css": [
+                "prism-themes/themes/prism-hopscotch.css"
+            ]
+        },
+       "include-codeblock": {
+            "template": "ace",
+            "unindent": true,
+            "edit": true
+        },
+       "tbfed-pagefooter": {
+            "copyright": "Copyright &copy benjamin",
+            "modify_label": "文件修订时间：",
+            "modify_format": "YYYY-MM-DD HH:mm:ss"
+        },
+        "sectionx": {
+            "tag": "b"
+        },
+        "atoc": {
+            "addClass": true,
+            "className": "atoc"
+        }
+    }
+}
